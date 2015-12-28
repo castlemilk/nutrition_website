@@ -1,0 +1,13 @@
+{% load crispy_forms_tags %}
+
+  <div class="col-sm-3 pull-right">
+
+			<p class='lead text-align-center'>{{ title }}</p>
+
+			<form method='POST' action=''>{% csrf_token %}
+			{{ form|crispy }}
+
+			<input class='btn btn-primary' type='submit' value='Join Us' />
+
+			</form>
+</div>

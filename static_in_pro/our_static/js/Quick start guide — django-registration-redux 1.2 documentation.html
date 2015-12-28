@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<!-- saved from url=(0074)http://django-registration-redux.readthedocs.org/en/latest/quickstart.html -->
+<html class=" js flexbox canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths" lang="en"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Quick start guide — django-registration-redux 1.2 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+
+  
+    <link rel="stylesheet" href="./Quick start guide — django-registration-redux 1.2 documentation_files/sphinx_rtd_theme.css" type="text/css">
+  
+    <link rel="stylesheet" href="./Quick start guide — django-registration-redux 1.2 documentation_files/readthedocs-doc-embed.css" type="text/css">
+  
+
+  
+    <link rel="top" title="django-registration-redux 1.2 documentation" href="http://django-registration-redux.readthedocs.org/en/latest/index.html">
+        <link rel="next" title="Release notes" href="http://django-registration-redux.readthedocs.org/en/latest/release-notes.html">
+        <link rel="prev" title="django-registration-redux 1.2 documentation" href="http://django-registration-redux.readthedocs.org/en/latest/index.html">
+ 
+<!-- RTD Extra Head -->
+
+    
+    
+
+<!-- 
+Always link to the latest version, as canonical.
+http://docs.readthedocs.org/en/latest/canonical.html
+-->
+<link rel="canonical" href="./Quick start guide — django-registration-redux 1.2 documentation_files/Quick start guide — django-registration-redux 1.2 documentation.html">
+<script type="text/javascript" async="" src="./Quick start guide — django-registration-redux 1.2 documentation_files/ga.js"></script><script type="text/javascript">
+  // This is included here because other places don't have access to the pagename variable.
+  var READTHEDOCS_DATA = {
+    project: "django-registration-redux",
+    version: "latest",
+    language: "en",
+    page: "quickstart",
+    builder: "sphinx",
+    theme: "sphinx_rtd_theme",
+    docroot: "/docs/",
+    
+    source_suffix: ".rst",
+    
+    api_host: "https://readthedocs.org/",
+    commit: "50e34a40"
+  }
+  // Old variables
+  var doc_version = "latest";
+  var doc_slug = "django-registration-redux";
+  var page_name = "quickstart";
+  var html_theme = "sphinx_rtd_theme";
+</script>
+<!-- RTD Analytics Code -->
+<!-- Included in the header because you don't have a footer block. -->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-17997319-1']);
+  _gaq.push(['_trackPageview']);
+
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+<!-- end RTD Analytics Code -->
+<!-- end RTD <extrahead> -->
+
+
+  
+  <script src="./Quick start guide — django-registration-redux 1.2 documentation_files/modernizr.min.js"></script>
+
+<style>@-webkit-keyframes popqrpqutlpqcwhfryqcybtjvjwcdihrwbwlwwqrrudi {50% {-webkit-transform:scale(1.2);}100% {-webkit-transform:scale(1);}}@keyframes popqrpqutlpqcwhfryqcybtjvjwcdihrwbwlwwqrrudi {50% {-webkit-transform:scale(1.2);transform:scale(1.2);}100% {-webkit-transform:scale(1);transform:scale(1);}}#qrpqutlpqcwhfryqcybtjvjwcdihrwbwlwwqrrudi{padding:0;margin:0;font:13px Arial,Helvetica;text-transform:none;font-size: 100%;vertical-align:baseline;line-height:normal;color:#fff;position:static;border:solid 2px #fff !important;box-sizing:content-box !important;color:#fff !important;display:block !important;height:auto !important;margin:0 !important;opacity:0.9 !important;padding:7px 10px !important;position:fixed !important;visibility:visible !important;width:auto !important;z-index:2147483647 !important;-webkit-border-radius:5px !important;-webkit-box-shadow:0px 0px 20px #000 !important;-webkit-box-sizing:content-box !important;}.qrpqutlpqcwhfryqcybtjvjwcdihrwbwlwwqrrudi-blocked{padding:0;margin:0;font:13px Arial,Helvetica;text-transform:none;font-size: 100%;vertical-align:baseline;line-height:normal;color:#fff;position:static;color:#AAA !important;display:inline !important;text-decoration:line-through !important;}#qrpqutlpqcwhfryqcybtjvjwcdihrwbwlwwqrrudi br{display:block !important;padding:0;margin:0;font:13px Arial,Helvetica;text-transform:none;font-size: 100%;vertical-align:baseline;line-height:normal;color:#fff;position:static;}#qrpqutlpqcwhfryqcybtjvjwcdihrwbwlwwqrrudi span{background:transparent !important;padding:0;margin:0;font:13px Arial,Helvetica;text-transform:none;font-size: 100%;vertical-align:baseline;line-height:normal;color:#fff;position:static;}#qrpqutlpqcwhfryqcybtjvjwcdihrwbwlwwqrrudi div{padding:0;margin:0;font:13px Arial,Helvetica;text-transform:none;font-size: 100%;vertical-align:baseline;line-height:normal;color:#fff;position:static;border:0 !important;margin:0 !important;padding:0 !important;width:auto !important;letter-spacing:normal !important;font:13px Arial,Helvetica !important;text-align:left !important;text-shadow:none !important;text-transform:none !important;word-spacing:normal !important;}#qrpqutlpqcwhfryqcybtjvjwcdihrwbwlwwqrrudi a{padding:0;margin:0;font:13px Arial,Helvetica;text-transform:none;font-size: 100%;vertical-align:baseline;line-height:normal;color:#fff;position:static;font-weight:normal !important;background:none !important;text-decoration:underline !important;color:#fff !important;}a#qrpqutlpqcwhfryqcybtjvjwcdihrwbwlwwqrrudi-gear{padding:0;margin:0;font:13px Arial,Helvetica;text-transform:none;font-size: 100%;vertical-align:baseline;line-height:normal;color:#fff;position:static;text-decoration:none !important;position:absolute !important;display:none !important;font-size:20px !important;width:20px !important;height:20px !important;line-height:20px !important;text-align:center !important;background-color:rgba(255,255,255,.8) !important;background-image:url(chrome-extension://mlomiejdfkolichcflejclcbmpeaniij/data/images/gear.svg) !important;background-size:16px 16px !important;background-position:center center !important;background-repeat:no-repeat !important;text-decoration:none !important;}a#qrpqutlpqcwhfryqcybtjvjwcdihrwbwlwwqrrudi-gear:hover{-webkit-animation-name:popqrpqutlpqcwhfryqcybtjvjwcdihrwbwlwwqrrudi !important;animation-name:popqrpqutlpqcwhfryqcybtjvjwcdihrwbwlwwqrrudi !important;-webkit-animation-duration:0.3s !important;animation-duration:0.3s !important;}#qrpqutlpqcwhfryqcybtjvjwcdihrwbwlwwqrrudi:hover #qrpqutlpqcwhfryqcybtjvjwcdihrwbwlwwqrrudi-gear{text-decoration:none !important;display:inline-block !important;}@media print{#qrpqutlpqcwhfryqcybtjvjwcdihrwbwlwwqrrudi{display:none !important;}}</style></head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="http://django-registration-redux.readthedocs.org/en/latest/index.html" class="icon icon-home"> django-registration-redux
+          
+
+          
+          </a>
+
+          
+            
+            
+            
+              <div class="version">
+                latest
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="http://django-registration-redux.readthedocs.org/en/latest/search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs">
+    <input type="hidden" name="check_keywords" value="yes">
+    <input type="hidden" name="area" value="default">
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href=""><span class="toctree-expand"></span>Quick start guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="http://django-registration-redux.readthedocs.org/en/latest/quickstart.html#installing-project"><span class="toctree-expand"></span>Installing django-registration-redux</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="http://django-registration-redux.readthedocs.org/en/latest/quickstart.html#automatic-installation-via-a-package-manager">Automatic installation via a package manager</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://django-registration-redux.readthedocs.org/en/latest/quickstart.html#manual-installation-from-a-downloaded-package">Manual installation from a downloaded package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://django-registration-redux.readthedocs.org/en/latest/quickstart.html#manual-installation-from-a-git-checkout">Manual installation from a Git checkout</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="http://django-registration-redux.readthedocs.org/en/latest/quickstart.html#basic-configuration-and-use"><span class="toctree-expand"></span>Basic configuration and use</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="http://django-registration-redux.readthedocs.org/en/latest/quickstart.html#settings">Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://django-registration-redux.readthedocs.org/en/latest/quickstart.html#setting-up-urls">Setting up URLs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://django-registration-redux.readthedocs.org/en/latest/quickstart.html#templates">Templates</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="http://django-registration-redux.readthedocs.org/en/latest/release-notes.html">Release notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="http://django-registration-redux.readthedocs.org/en/latest/upgrade.html">Upgrade guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="http://django-registration-redux.readthedocs.org/en/latest/default-backend.html">The default backend</a></li>
+<li class="toctree-l1"><a class="reference internal" href="http://django-registration-redux.readthedocs.org/en/latest/simple-backend.html">The “simple” (one-step) backend</a></li>
+<li class="toctree-l1"><a class="reference internal" href="http://django-registration-redux.readthedocs.org/en/latest/forms.html">Forms for user registration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="http://django-registration-redux.readthedocs.org/en/latest/views.html">Registration views</a></li>
+<li class="toctree-l1"><a class="reference internal" href="http://django-registration-redux.readthedocs.org/en/latest/signals.html">Custom signals used by django-registration-redux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="http://django-registration-redux.readthedocs.org/en/latest/faq.html">Frequently-asked questions</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="http://django-registration-redux.readthedocs.org/en/latest/index.html">django-registration-redux</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="http://django-registration-redux.readthedocs.org/en/latest/index.html">Docs</a> »</li>
+      
+    <li>Quick start guide</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="https://github.com/macropin/django-registration/blob/master/docs/quickstart.rst" class="fa fa-github"> Edit on GitHub</a>
+          
+        
+      </li>
+  </ul>
+  <hr>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="quick-start-guide">
+<span id="quickstart"></span><h1>Quick start guide<a class="headerlink" href="http://django-registration-redux.readthedocs.org/en/latest/quickstart.html#quick-start-guide" title="Permalink to this headline">¶</a></h1>
+<p>Before installing django-registration-redux, you’ll need to have a copy of
+<a class="reference external" href="http://www.djangoproject.com/">Django</a> already installed. For the
+1.2 release, Django 1.7 or newer is required.</p>
+<p>For further information, consult the <a class="reference external" href="http://www.djangoproject.com/download/">Django download page</a>, which offers convenient
+packaged downloads and installation instructions.</p>
+<div class="section" id="installing-project">
+<h2>Installing django-registration-redux<a class="headerlink" href="http://django-registration-redux.readthedocs.org/en/latest/quickstart.html#installing-project" title="Permalink to this headline">¶</a></h2>
+<p>There are several ways to install django-registration-redux:</p>
+<ul class="simple">
+<li>Automatically, via a package manager.</li>
+<li>Manually, by downloading a copy of the release package and
+installing it yourself.</li>
+<li>Manually, by performing a Git checkout of the latest code.</li>
+</ul>
+<p>It is also highly recommended that you learn to use <a class="reference external" href="http://pypi.python.org/pypi/virtualenv">virtualenv</a> for development and
+deployment of Python software; <code class="docutils literal"><span class="pre">virtualenv</span></code> provides isolated Python
+environments into which collections of software (e.g., a copy of
+Django, and the necessary settings and applications for deploying a
+site) can be installed, without conflicting with other installed
+software. This makes installation, testing, management and deployment
+far simpler than traditional site-wide installation of Python
+packages.</p>
+<div class="section" id="automatic-installation-via-a-package-manager">
+<h3>Automatic installation via a package manager<a class="headerlink" href="http://django-registration-redux.readthedocs.org/en/latest/quickstart.html#automatic-installation-via-a-package-manager" title="Permalink to this headline">¶</a></h3>
+<p>Several automatic package-installation tools are available for Python;
+the recommended one is <a class="reference external" href="https://pip.pypa.io/">pip</a>.</p>
+<p>Using <code class="docutils literal"><span class="pre">pip</span></code>, type:</p>
+<div class="highlight-python"><div class="highlight"><pre>pip install django-registration-redux
+</pre></div>
+</div>
+<p>It is also possible that your operating system distributor provides a
+packaged version of django-registration-redux. Consult your
+operating system’s package list for details, but be aware that
+third-party distributions may be providing older versions of
+django-registration-redux, and so you should consult the documentation which
+comes with your operating system’s package.</p>
+</div>
+<div class="section" id="manual-installation-from-a-downloaded-package">
+<h3>Manual installation from a downloaded package<a class="headerlink" href="http://django-registration-redux.readthedocs.org/en/latest/quickstart.html#manual-installation-from-a-downloaded-package" title="Permalink to this headline">¶</a></h3>
+<p>If you prefer not to use an automated package installer, you can
+download a copy of django-registration-redux and install it manually. The
+latest release package can be downloaded from django-registration-redux‘s
+<a class="reference external" href="http://pypi.python.org/pypi/django-registration-redux/">listing on the Python Package Index</a>.</p>
+<p>Once you’ve downloaded the package, unpack it (on most operating
+systems, simply double-click; alternately, type <code class="docutils literal"><span class="pre">tar</span> <span class="pre">zxvf</span>
+<span class="pre">django-registration-redux-1.1.tar.gz</span></code> at a command line on Linux, Mac OS X
+or other Unix-like systems). This will create the directory
+<code class="docutils literal"><span class="pre">django-registration-redux-1.1</span></code>, which contains the <code class="docutils literal"><span class="pre">setup.py</span></code>
+installation script. From a command line in that directory, type:</p>
+<div class="highlight-python"><div class="highlight"><pre>python setup.py install
+</pre></div>
+</div>
+<p>Note that on some systems you may need to execute this with
+administrative privileges (e.g., <code class="docutils literal"><span class="pre">sudo</span> <span class="pre">python</span> <span class="pre">setup.py</span> <span class="pre">install</span></code>).</p>
+</div>
+<div class="section" id="manual-installation-from-a-git-checkout">
+<h3>Manual installation from a Git checkout<a class="headerlink" href="http://django-registration-redux.readthedocs.org/en/latest/quickstart.html#manual-installation-from-a-git-checkout" title="Permalink to this headline">¶</a></h3>
+<p>If you’d like to try out the latest in-development code, you can
+obtain it from the django-registration-redux repository, which is hosted at
+<a class="reference external" href="http://github.com/">Github</a> and uses <a class="reference external" href="http://git-scm.com/">Git</a> for version control. To
+obtain the latest code and documentation, you’ll need to have
+Git installed, at which point you can type:</p>
+<div class="highlight-python"><div class="highlight"><pre>git clone https://github.com/macropin/django-registration.git
+</pre></div>
+</div>
+<p>You can also obtain a copy of a particular release of
+django-registration-redux by specifying the <code class="docutils literal"><span class="pre">-b</span></code> argument to <code class="docutils literal"><span class="pre">git</span> <span class="pre">clone</span></code>;
+each release is given a tag of the form <code class="docutils literal"><span class="pre">vX.Y</span></code>, where “X.Y” is the
+release number. So, for example, to check out a copy of the 1.2
+release, type:</p>
+<div class="highlight-python"><div class="highlight"><pre>git clone -b v1.0 https://github.com/macropin/django-registration.git
+</pre></div>
+</div>
+<p>In either case, this will create a copy of the django-registration-redux
+Git repository on your computer; you can then add the
+<code class="docutils literal"><span class="pre">django-registration-redux</span></code> directory inside the checkout your Python
+import path, or use the <code class="docutils literal"><span class="pre">setup.py</span></code> script to install as a package.</p>
+</div>
+</div>
+<div class="section" id="basic-configuration-and-use">
+<h2>Basic configuration and use<a class="headerlink" href="http://django-registration-redux.readthedocs.org/en/latest/quickstart.html#basic-configuration-and-use" title="Permalink to this headline">¶</a></h2>
+<p>Once installed, you can add django-registration-redux to any Django-based
+project you’re developing. The default setup will enable user
+registration with the following workflow:</p>
+<ol class="arabic simple">
+<li>A user signs up for an account by supplying a username, email
+address and password.</li>
+<li>From this information, a new <code class="docutils literal"><span class="pre">User</span></code> object is created, with its
+<code class="docutils literal"><span class="pre">is_active</span></code> field set to <code class="docutils literal"><span class="pre">False</span></code>. Additionally, an activation
+key is generated and stored, and an email is sent to the user
+containing a link to click to activate the account.</li>
+<li>Upon clicking the activation link, the new account is made active
+(the <code class="docutils literal"><span class="pre">is_active</span></code> field is set to <code class="docutils literal"><span class="pre">True</span></code>); after this, the user
+can log in.</li>
+</ol>
+<p>Note that the default workflow requires <code class="docutils literal"><span class="pre">django.contrib.auth</span></code> to be
+installed, and it is recommended that <code class="docutils literal"><span class="pre">django.contrib.sites</span></code> be
+installed as well. You will also need to have a working mail server
+(for sending activation emails), and provide Django with the necessary
+settings to make use of this mail server (consult <a class="reference external" href="http://docs.djangoproject.com/en/dev/topics/email/">Django’s
+email-sending documentation</a> for details).</p>
+<div class="section" id="settings">
+<h3>Settings<a class="headerlink" href="http://django-registration-redux.readthedocs.org/en/latest/quickstart.html#settings" title="Permalink to this headline">¶</a></h3>
+<p>Begin by adding <code class="docutils literal"><span class="pre">registration</span></code> to the <code class="docutils literal"><span class="pre">INSTALLED_APPS</span></code> setting of
+your project, and specifying one additional setting:</p>
+<dl class="docutils">
+<dt><code class="docutils literal"><span class="pre">ACCOUNT_ACTIVATION_DAYS</span></code></dt>
+<dd>This is the number of days users will have to activate their
+accounts after registering. If a user does not activate within
+that period, the account will remain permanently inactive and may
+be deleted by maintenance scripts provided in django-registration-redux.</dd>
+<dt><code class="docutils literal"><span class="pre">REGISTRATION_DEFAULT_FROM_EMAIL</span></code></dt>
+<dd>Optional. If set, emails sent through the registration app will use this
+string. Falls back to using Django’s built-in <code class="docutils literal"><span class="pre">DEFAULT_FROM_EMAIL</span></code>
+setting.</dd>
+<dt><code class="docutils literal"><span class="pre">REGISTRATION_EMAIL_HTML</span></code></dt>
+<dd>Optional. If this is <cite>False</cite>, registration emails will be send in plain
+text. If this is <cite>True</cite>, emails will be sent as HTML. Defaults to <cite>True</cite>.</dd>
+<dt><code class="docutils literal"><span class="pre">REGISTRATION_AUTO_LOGIN</span></code></dt>
+<dd>Optional. If this is <cite>True</cite>, your users will automatically log in when they
+click on the activation link in their email. Defaults to <cite>False</cite>.</dd>
+</dl>
+<p>For example, you might have something like the following in your
+Django settings file:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">INSTALLED_APPS</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="s">'django.contrib.auth'</span><span class="p">,</span>
+    <span class="s">'django.contrib.sites'</span><span class="p">,</span>
+    <span class="s">'registration'</span><span class="p">,</span>
+    <span class="c"># ...other installed applications...</span>
+<span class="p">)</span>
+
+<span class="n">ACCOUNT_ACTIVATION_DAYS</span> <span class="o">=</span> <span class="mi">7</span> <span class="c"># One-week activation window; you may, of course, use a different value.</span>
+<span class="n">REGISTRATION_AUTO_LOGIN</span> <span class="o">=</span> <span class="bp">True</span> <span class="c"># Automatically log the user in.</span>
+</pre></div>
+</div>
+<p>Once you’ve done this, run <code class="docutils literal"><span class="pre">manage.py</span> <span class="pre">syncdb</span></code> to install the model
+used by the default setup.</p>
+</div>
+<div class="section" id="setting-up-urls">
+<h3>Setting up URLs<a class="headerlink" href="http://django-registration-redux.readthedocs.org/en/latest/quickstart.html#setting-up-urls" title="Permalink to this headline">¶</a></h3>
+<p>The <a class="reference internal" href="http://django-registration-redux.readthedocs.org/en/latest/default-backend.html#default-backend"><span>default backend</span></a> includes a Django
+<code class="docutils literal"><span class="pre">URLconf</span></code> which sets up URL patterns for <a class="reference internal" href="http://django-registration-redux.readthedocs.org/en/latest/views.html#views"><span>the views in
+django-registration-redux</span></a>, as well as several useful views in
+<code class="docutils literal"><span class="pre">django.contrib.auth</span></code> (e.g., login, logout, password
+change/reset). This <code class="docutils literal"><span class="pre">URLconf</span></code> can be found at
+<code class="docutils literal"><span class="pre">registration.backends.default.urls</span></code>, and so can simply be included
+in your project’s root URL configuration. For example, to place the
+URLs under the prefix <code class="docutils literal"><span class="pre">/accounts/</span></code>, you could add the following to
+your project’s root <code class="docutils literal"><span class="pre">URLconf</span></code>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">(</span><span class="s">r'^accounts/'</span><span class="p">,</span> <span class="n">include</span><span class="p">(</span><span class="s">'registration.backends.default.urls'</span><span class="p">)),</span>
+</pre></div>
+</div>
+<p>Users would then be able to register by visiting the URL
+<code class="docutils literal"><span class="pre">/accounts/register/</span></code>, login (once activated) at
+<code class="docutils literal"><span class="pre">/accounts/login/</span></code>, etc.</p>
+<p>Another <code class="docutils literal"><span class="pre">URLConf</span></code> is also provided – at <code class="docutils literal"><span class="pre">registration.auth_urls</span></code>
+– which just handles the Django auth views, should you want to put
+those at a different location.</p>
+</div>
+<div class="section" id="templates">
+<h3>Templates<a class="headerlink" href="http://django-registration-redux.readthedocs.org/en/latest/quickstart.html#templates" title="Permalink to this headline">¶</a></h3>
+<p>The templates in django-registration-redux assume you have a <cite>base.html</cite> template in your
+project’s template directory. This base template should include a <code class="docutils literal"><span class="pre">title</span></code> block and a <code class="docutils literal"><span class="pre">content</span></code> block. Other than that, every template needed is
+included.  You can extend and customize the included templates as needed. Some
+of the templates you’ll probably want to customize are covered here:</p>
+<p>Note that, with the exception of the templates used for account activation
+emails, all of these are rendered using a <code class="docutils literal"><span class="pre">RequestContext</span></code> and so will also
+receive any additional variables provided by <a class="reference external" href="http://docs.djangoproject.com/en/dev/ref/templates/api/#id1">context processors</a>.</p>
+<p><strong>registration/registration_form.html</strong></p>
+<p>Used to show the form users will fill out to register. By default, has
+the following context:</p>
+<dl class="docutils">
+<dt><code class="docutils literal"><span class="pre">form</span></code></dt>
+<dd>The registration form. This will be an instance of some subclass
+of <code class="docutils literal"><span class="pre">django.forms.Form</span></code>; consult <a class="reference external" href="http://docs.djangoproject.com/en/dev/topics/forms/">Django’s forms documentation</a> for
+information on how to display this in a template.</dd>
+</dl>
+<p><strong>registration/registration_complete.html</strong></p>
+<p>Used after successful completion of the registration form. This
+template has no context variables of its own, and should simply inform
+the user that an email containing account-activation information has
+been sent.</p>
+<p><strong>registration/activate.html</strong></p>
+<p>Used if account activation fails. With the default setup, has the following context:</p>
+<dl class="docutils">
+<dt><code class="docutils literal"><span class="pre">activation_key</span></code></dt>
+<dd>The activation key used during the activation attempt.</dd>
+</dl>
+<p><strong>registration/activation_complete.html</strong></p>
+<p>Used after successful account activation. This template has no context
+variables of its own, and should simply inform the user that their
+account is now active.</p>
+<p><strong>registration/activation_email_subject.txt</strong></p>
+<p>Used to generate the subject line of the activation email. Because the
+subject line of an email must be a single line of text, any output
+from this template will be forcibly condensed to a single line before
+being used. This template has the following context:</p>
+<dl class="docutils">
+<dt><code class="docutils literal"><span class="pre">activation_key</span></code></dt>
+<dd>The activation key for the new account.</dd>
+<dt><code class="docutils literal"><span class="pre">expiration_days</span></code></dt>
+<dd>The number of days remaining during which the account may be
+activated.</dd>
+<dt><code class="docutils literal"><span class="pre">site</span></code></dt>
+<dd>An object representing the site on which the user registered;
+depending on whether <code class="docutils literal"><span class="pre">django.contrib.sites</span></code> is installed, this
+may be an instance of either <code class="docutils literal"><span class="pre">django.contrib.sites.models.Site</span></code>
+(if the sites application is installed) or
+<code class="docutils literal"><span class="pre">django.contrib.sites.models.RequestSite</span></code> (if not). Consult <a class="reference external" href="http://docs.djangoproject.com/en/dev/ref/contrib/sites/">the
+documentation for the Django sites framework</a> for
+details regarding these objects’ interfaces.</dd>
+</dl>
+<p><strong>registration/activation_email.txt</strong></p>
+<p><strong>IMPORTANT</strong>: If you override this template, you must also override the HTML
+version (below), or disable HTML emails by adding
+<code class="docutils literal"><span class="pre">REGISTRATION_EMAIL_HTML</span> <span class="pre">=</span> <span class="pre">False</span></code> to your settings.py.</p>
+<p>Used to generate the text body of the activation email. Should display a
+link the user can click to activate the account. This template has the
+following context:</p>
+<dl class="docutils">
+<dt><code class="docutils literal"><span class="pre">activation_key</span></code></dt>
+<dd>The activation key for the new account.</dd>
+<dt><code class="docutils literal"><span class="pre">expiration_days</span></code></dt>
+<dd>The number of days remaining during which the account may be
+activated.</dd>
+<dt><code class="docutils literal"><span class="pre">site</span></code></dt>
+<dd>An object representing the site on which the user registered;
+depending on whether <code class="docutils literal"><span class="pre">django.contrib.sites</span></code> is installed, this
+may be an instance of either <code class="docutils literal"><span class="pre">django.contrib.sites.models.Site</span></code>
+(if the sites application is installed) or
+<code class="docutils literal"><span class="pre">django.contrib.sites.models.RequestSite</span></code> (if not). Consult <a class="reference external" href="http://docs.djangoproject.com/en/dev/ref/contrib/sites/">the
+documentation for the Django sites framework</a> for
+details regarding these objects’ interfaces.</dd>
+<dt><code class="docutils literal"><span class="pre">user</span></code></dt>
+<dd>The new user account</dd>
+</dl>
+<p><strong>registration/activation_email.html</strong></p>
+<p>This template is used to generate the html body of the activation email.
+Should display the same content as the text version of the activation email.</p>
+<p>The context available is the same as the text version of the template.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="http://django-registration-redux.readthedocs.org/en/latest/release-notes.html" class="btn btn-neutral float-right" title="Release notes" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="http://django-registration-redux.readthedocs.org/en/latest/index.html" class="btn btn-neutral" title="django-registration-redux 1.2 documentation" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr>
+
+  <div role="contentinfo">
+    <p>
+        © Copyright 2007-2013, James Bennett. 2014, Andrew Cutler and others..
+      
+        <span class="commit">
+          Revision <code>50e34a40</code>.
+        </span>
+      
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org/">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> Read the Docs</span>
+      v: latest
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions"><!-- Inserted RTD Footer -->
+<div class="injected">
+
+  
+
+      
+      
+      
+      <dl>
+        <dt>Versions</dt>
+        
+         <strong> 
+        <dd><a href="./Quick start guide — django-registration-redux 1.2 documentation_files/Quick start guide — django-registration-redux 1.2 documentation.html">latest</a></dd>
+         </strong> 
+        
+        
+        <dd><a href="http://django-registration-redux.readthedocs.org/en/stable/quickstart.html">stable</a></dd>
+        
+        
+      </dl>
+      
+      
+
+      
+      
+      <dl>
+        <dt>Downloads</dt>
+        
+        <dd><a href="http://readthedocs.org/projects/django-registration-redux/downloads/pdf/latest/">PDF</a></dd>
+        
+        <dd><a href="http://readthedocs.org/projects/django-registration-redux/downloads/htmlzip/latest/">HTML</a></dd>
+        
+        <dd><a href="http://readthedocs.org/projects/django-registration-redux/downloads/epub/latest/">Epub</a></dd>
+        
+      </dl>
+      
+      
+
+      
+      <dl>
+        <!-- These are kept as relative links for internal installs that are http -->
+        <dt>On Read the Docs</dt>
+        <dd>
+          <a href="http://readthedocs.org/projects/django-registration-redux/">Project Home</a>
+        </dd>
+        <dd>
+          <a href="http://readthedocs.org/projects/django-registration-redux/builds/">Builds</a>
+        </dd>
+        <dd>
+          <a href="http://readthedocs.org/projects/django-registration-redux/downloads/">Downloads</a>
+        </dd>
+      </dl>
+      
+
+      
+
+      
+      <dl>
+        <dt>On GitHub</dt>
+        <dd>
+          <a href="https://github.com/macropin/django-registration/blob/master/docs/quickstart.rst">View</a>
+        </dd>
+        <dd>
+          <a href="https://github.com/macropin/django-registration/edit/master/docs/quickstart.rst">Edit</a>
+        </dd>
+      </dl>
+      
+      
+
+      
+      <dl>
+        <dt>Search</dt>
+        <dd>
+          <div style="padding: 6px;">
+            <form id="flyout-search-form" class="wy-form" target="_blank" action="https://readthedocs.org/projects/django-registration-redux/search/" method="get">
+              <input type="text" name="q" placeholder="Search docs">
+              </form>
+          </div>
+        </dd>
+      </dl>
+      
+
+
+
+      <hr>
+      
+      Free document hosting provided by <a href="https://readthedocs.org/">Read the Docs</a>. 
+      
+
+      
+
+</div>
+</div>
+  </div>
+
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.2',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="./Quick start guide — django-registration-redux 1.2 documentation_files/jquery-2.0.3.min.js"></script>
+      <script type="text/javascript" src="./Quick start guide — django-registration-redux 1.2 documentation_files/jquery-migrate-1.2.1.min.js"></script>
+      <script type="text/javascript" src="./Quick start guide — django-registration-redux 1.2 documentation_files/underscore.js"></script>
+      <script type="text/javascript" src="./Quick start guide — django-registration-redux 1.2 documentation_files/doctools.js"></script>
+      <script type="text/javascript" src="./Quick start guide — django-registration-redux 1.2 documentation_files/readthedocs-doc-embed.js"></script>
+
+  
+
+  
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+
+<script id="hiddenlpsubmitdiv" style="display: none;"></script><script>try{(function() { for(var lastpass_iter=0; lastpass_iter < document.forms.length; lastpass_iter++){ var lastpass_f = document.forms[lastpass_iter]; if(typeof(lastpass_f.lpsubmitorig2)=="undefined"){ lastpass_f.lpsubmitorig2 = lastpass_f.submit; if (typeof(lastpass_f.lpsubmitorig2)=='object'){ continue;}lastpass_f.submit = function(){ var form=this; var customEvent = document.createEvent("Event"); customEvent.initEvent("lpCustomEvent", true, true); var d = document.getElementById("hiddenlpsubmitdiv"); if (d) {for(var i = 0; i < document.forms.length; i++){ if(document.forms[i]==form){ if (typeof(d.innerText) != 'undefined') { d.innerText=i.toString(); } else { d.textContent=i.toString(); } } } d.dispatchEvent(customEvent); }form.lpsubmitorig2(); } } }})()}catch(e){}</script></body></html>
