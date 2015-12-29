@@ -19,14 +19,14 @@ def home(request):
 
     if form.is_valid():
         instance = form.save(commit=False)
-        full_name = form.cleaned_data.get("full_name")
-        if not full_name:
-            full_name = "New full name"
+        name = form.cleaned_data.get("name")
+        if not name:
+            name = "Default Name"
 
-        instance.full_name = full_name
+        instance.name = name
         instance.save()
         context ={
-                    'title': "Thank You",
+                    'title': "Thanks for signing up to our newsletter!",
                   }
     admin_user = request.user.is_authenticated() and request.user.is_staff
     if admin_user:

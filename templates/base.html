@@ -11,7 +11,8 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>{% block head_title %} MVP Landing {% endblock %}</title>
+    <title>{% block head_title %} Evidence Based Nutrition{% endblock %}</title>
+    <link rel="icon" type="image/gif" href="{% static 'img/navbar_logo.png' %}">
 
     {% include 'head_css.html' %}
 
@@ -32,10 +33,10 @@
     {% block jumbotron %}
     {% endblock %}
 
-          {% block content %}
-          {% endblock %}
+    {% block content %}
+    {% endblock %}
 
-    </div> <!-- /container -->
+  </body>
 
     {% include 'js.html' %}
 

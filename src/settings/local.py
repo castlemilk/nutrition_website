@@ -41,6 +41,7 @@ INSTALLED_APPS = (
     'registration',
     'crispy_forms',
     'newsletter',
+    'blog',
 
 )
 
@@ -62,6 +63,7 @@ TEMPLATES = [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
                     os.path.join(BASE_DIR, 'templates'),
+                    os.path.join(BASE_DIR, 'blog/templates')
                 ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -111,6 +113,7 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR),'static_in_env', 'static_root')
 STATICFILES_DIRS = (
                     os.path.join(BASE_DIR,'static_in_pro', 'our_static'),
+                    os.path.join(BASE_DIR,'blog','static'),
                   )
 
 MEDIA_URL = '/media/'

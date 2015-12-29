@@ -45,54 +45,55 @@
 
 
   {% block content %}
-  {% if not admin %}
-  <div class="row">
+    {% if not admin %}
+          <div class="row">
+            <div class="col-sm-3">
+              <p class='lead text-align-center'><i class="fa fa-heartbeat fa-5x"></i>
+                <br/>
+                Body is important and effects the mind, blah blah blah. Poo smells
+                and must be considered unhealthy under most cirumstances. However some
+                recent studies show that consuming faecal matter can improve digestion
+                health, along with increased eye sight.
+              </p>
+            </div>
+            <div class="col-sm-3">
+              <p class='lead text-align-center'><i class="fa fa-thumbs-up fa-5x"></i>
+                <br/>
+                The good parts about healthy living and maintaining a cleaner lifestyle
+                with respect to eating, are of course emotional and physical. There
+                can be immense delight in 'feeling' healthier and this can contribute
+                to ones overall mental wellbeing.
+            </div>
+            <div class="col-sm-3">
+              <p class='lead text-align-center'><i class="fa fa-thumbs-down fa-5x"></i>
+                <br/>
+                With the good must come the bad. Ying and Yang. In trying to maintain
+                a more rigid or strict lifestyle with relation to eating, one can be condused
+                to feel anxiety, guilt, and over-all dissatisfation or disillusion.
+            </div>
+            <div class="col-sm-3 col-xs-12 pull-right">
+                <p class='lead text-align-center'>{{ title }}</p>
+                {% if "Thank" not in title %}
+                  <form method='POST' action=''>
+                    {% csrf_token %}
+                    {{ form|crispy }}
+                    <input class='btn btn-primary' type='submit' value='Sign Up' />
+                  </form>
+                {% endif %}
+            </div>
+          </div>
+    {% else %}
+      <h1> Welcome staff </h1>
+      <p>there are {{signups.count}} signups</p>
+      <table class='table'>
+        <tr><td>NAME </td> <td>TIMESTAMP <td> EMAIL</td></tr>
+      {% for signup in signups%}
+          <tr>
+            <td>{{ signup.full_name }}</td>
+            <td>{{signup.timestamp|timesince}} ago</td>
+            <td>{{signup.email}}</td>
+      {% endfor %}
 
-          <div class="col-sm-3">
-            <p class='lead text-align-center'><i class="fa fa-heartbeat fa-5x"></i>
-              <br/>
-              Body is important and effects the mind, blah blah blah. Poo smells
-              and must be considered unhealthy under most cirumstances. However some
-              recent studies show that consuming faecal matter can improve digestion
-              health, along with increased eye sight.
-            </p>
-          </div>
-          <div class="col-sm-3">
-            <p class='lead text-align-center'><i class="fa fa-thumbs-up fa-5x"></i>
-              <br/>
-              The good parts about healthy living and maintaining a cleaner lifestyle
-              with respect to eating, are of course emotional and physical. There
-              can be immense delight in 'feeling' healthier and this can contribute
-              to ones overall mental wellbeing.
-          </div>
-          <div class="col-sm-3">
-            <p class='lead text-align-center'><i class="fa fa-thumbs-down fa-5x"></i>
-              <br/>
-              With the good must come the bad. Ying and Yang. In trying to maintain
-              a more rigid or strict lifestyle with relation to eating, one can be condused
-              to feel anxiety, guilt, and over-all dissatisfation or disillusion.
-          </div>
-          <div class="col-sm-3 col-xs-12 pull-right">
-              <p class='lead text-align-center'>{{ title }}</p>
-              <form method='POST' action=''>
-                {% csrf_token %}
-                {{ form|crispy }}
-                <input class='btn btn-primary' type='submit' value='Sign Up' />
-              </form>
-          </div>
-  </div>
-  {% else %}
-    <h1> Welcome staff </h1>
-    <p>there are {{signups.count}} signups</p>
-    <table class='table'>
-      <tr><td>NAME </td> <td>TIMESTAMP <td> EMAIL</td></tr>
-    {% for signup in signups%}
-        <tr>
-          <td>{{ signup.full_name }}</td>
-          <td>{{signup.timestamp|timesince}} ago</td>
-          <td>{{signup.email}}</td>
-    {% endfor %}
-
-  {% endif %}
+    {% endif %}
 
   {% endblock %}
